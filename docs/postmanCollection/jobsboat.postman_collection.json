@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "1aa68cc7-8519-4068-bfdb-31d3f2ce6aab",
+		"name": "jobsboat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bansalbhavesh47@gmail.com\",\r\n    \"password\": \"Heyhero@123\",\r\n    \"confirmPassword\": \"Heyhero@123\",\r\n    \"firstName\": \"Bhavesh\",\r\n    \"lastName\": \"Bansal\",\r\n    \"type\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/auth/signup",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b19b7ce2-b3bb-4878-9342-6539cb655bc9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7720f9b-cb4a-4af2-af1b-91dd5b19becf",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "{{xsrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"bansalbhavesh14@gmail.com\",\r\n    \"password\": \"Heyhero@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/auth/signin",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgotpassword",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "{{xsrf-token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bansalbhavesh49@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/auth/forgot-password",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "resetpassword",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Bhavesh@1997\",\r\n    \"confirmPassword\": \"Bhavesh@1997\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/auth/reset-password?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0OUBnbWFpbC5jb20iLCJpYXQiOjE2MDMwMzAyODksImV4cCI6MTYwMzAzMzg4OX0.9Iero_0Q3KAvIWpyQ_TXG3zLiRSetu7hYaTo9_r0erM",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0OUBnbWFpbC5jb20iLCJpYXQiOjE2MDMwMzAyODksImV4cCI6MTYwMzAzMzg4OX0.9Iero_0Q3KAvIWpyQ_TXG3zLiRSetu7hYaTo9_r0erM"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jobseeker",
+			"item": [
+				{
+					"name": "jobapply",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0N0BnbWFpbC5jb20iLCJ0eXBlIjoxLCJpYXQiOjE2MDMzNjg1MDksImV4cCI6MTYwMzM3MjEwOX0.rmPigI-BdssZbsBUw4KANSTOEgg4NY4begycU_afdI8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/apply/71515619-c5f5-4c55-9976-20f8f629f53b",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"apply",
+								"71515619-c5f5-4c55-9976-20f8f629f53b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "applicationwithdraw",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0N0BnbWFpbC5jb20iLCJ0eXBlIjoxLCJpYXQiOjE2MDMwMzA4NzAsImV4cCI6MTYwMzAzNDQ3MH0.E2eQYtrjULO1Uv3anKuD32XrKk6d94AZ_iHH9h1QyeY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/withdraw/21a5cf43-57df-4b42-b4f7-0dfd2558d480",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"withdraw",
+								"21a5cf43-57df-4b42-b4f7-0dfd2558d480"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getappliedjobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0N0BnbWFpbC5jb20iLCJ0eXBlIjoxLCJpYXQiOjE2MDMzNjg1MDksImV4cCI6MTYwMzM3MjEwOX0.rmPigI-BdssZbsBUw4KANSTOEgg4NY4begycU_afdI8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/applied?size=12&pageNo=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"applied"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "12"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "recruiter",
+			"item": [
+				{
+					"name": "updatejob",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0OUBnbWFpbC5jb20iLCJ0eXBlIjoyLCJpYXQiOjE2MDMwMzA0NTMsImV4cCI6MTYwMzAzNDA1M30.plsSBonYnPPg0tb8_tCM8bkUt_ujjSzMtL6Oat44jP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Web\",\r\n    \"description\": \"Developer\",\r\n    \"salary\": 45000,\r\n    \"location\": \"Banglore\",\r\n    \"type\": 1,\r\n    \"companyName\": \"Google\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/update/21a5cf43-57df-4b42-b4f7-0dfd2558d480",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"update",
+								"21a5cf43-57df-4b42-b4f7-0dfd2558d480"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "jobpost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g2N0BnbWFpbC5jb20iLCJ0eXBlIjoyLCJpYXQiOjE2MDM3MDY3ODQsImV4cCI6MTYwMzcxMDM4NH0._ySwgPQdugIYaV-gNrrLtQO1N4fa4H8QwYjgAvBPG7Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Software Engineer\",\r\n    \"description\": \"You will be working on great technologies such as nestJs ObjectionJs.\",\r\n    \"salary\": 45000,\r\n    \"location\": \"Banglore\",\r\n    \"type\": 1,\r\n    \"companyName\": \"Google\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/post",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getpostedjobs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2g0OUBnbWFpbC5jb20iLCJ0eXBlIjoyLCJpYXQiOjE2MDMwMzA0NTMsImV4cCI6MTYwMzAzNDA1M30.plsSBonYnPPg0tb8_tCM8bkUt_ujjSzMtL6Oat44jP4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/posted?size=5&pageNo=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"posted"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "getusers(onlyadminaccess)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2gxNEBnbWFpbC5jb20iLCJ0eXBlIjozLCJpYXQiOjE2MDMwMzEyMDEsImV4cCI6MTYwMzAzNDgwMX0.HSwITGXcLAS8x3rnr4qHaTVJiqj3HYWrnjIy77ExJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/user?size=5&pageNo=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"user"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "pageNo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userdetails(onlyadminaccess)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2gxNEBnbWFpbC5jb20iLCJ0eXBlIjozLCJpYXQiOjE2MDM0NDc1OTMsImV4cCI6MTYwMzQ1MTE5M30.8FA6i8tCKMlJfoJWbXia0zTmmCK_t-Xev1gWooMx1SM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/user/dcdae7e6-09d4-4f1a-a677-0dbd3a9bfe8b",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"user",
+								"dcdae7e6-09d4-4f1a-a677-0dbd3a9bfe8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removejob",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2gxNEBnbWFpbC5jb20iLCJ0eXBlIjozLCJpYXQiOjE2MDM0NDYyMzksImV4cCI6MTYwMzQ0OTgzOX0.sIbgZXDrOoe_AiEe0lstnZhHJEe9F7ELvxpqaacvtCI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/jobs/remove/457e5a21-c3b3-405f-9f5d-ffe11f5af74d",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"jobs",
+								"remove",
+								"457e5a21-c3b3-405f-9f5d-ffe11f5af74d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeuser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2gxNEBnbWFpbC5jb20iLCJ0eXBlIjozLCJpYXQiOjE2MDMwMzEyMDEsImV4cCI6MTYwMzAzNDgwMX0.HSwITGXcLAS8x3rnr4qHaTVJiqj3HYWrnjIy77ExJjo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.bbjp.squareboat.info/v1/user/remove/f97ffefc-c64f-4d18-9a41-1607b16815e4",
+							"protocol": "https",
+							"host": [
+								"api",
+								"bbjp",
+								"squareboat",
+								"info"
+							],
+							"path": [
+								"v1",
+								"user",
+								"remove",
+								"f97ffefc-c64f-4d18-9a41-1607b16815e4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "jobdetails",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbnNhbGJoYXZlc2gxNEBnbWFpbC5jb20iLCJ0eXBlIjozLCJpYXQiOjE2MDM5NjA1MjQsImV4cCI6MTYwMzk2NDEyNH0.S-WMhBoP4_HlyBYAJuIl31ci08Djg45yliIhwp6yJw8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.bbjp.squareboat.info/v1/jobs/21a5cf43-57df-4b42-b4f7-0dfd2558d4",
+					"protocol": "https",
+					"host": [
+						"api",
+						"bbjp",
+						"squareboat",
+						"info"
+					],
+					"path": [
+						"v1",
+						"jobs",
+						"21a5cf43-57df-4b42-b4f7-0dfd2558d4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllJobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.bbjp.squareboat.info/v1/jobs?size=5&pageNo=1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"bbjp",
+						"squareboat",
+						"info"
+					],
+					"path": [
+						"v1",
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "pageNo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
